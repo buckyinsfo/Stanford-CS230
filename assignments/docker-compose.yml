@@ -1,0 +1,33 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - JUPYTER_TOKEN=go
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/home/jovyan/work 
+  
+volumes:
+  attention: 
+
+
+# version: '3'
+# services:
+#     jupyter:
+#     build:
+#         context: ..
+#     #    dockerfile: Dockerfile
+#     #restart: unless-stopped
+#     #container_name: 
+#     #    - neural-jupyter-notebook
+#     ports:
+#         - "8888:8888"
+#     volumes:
+#         - "./work:../"
+#     # Default command used when running `docker compose up`
+#     command: >
+#         jupyter notebook --port=8888 --ip 0.0.0.0 --allow-root
